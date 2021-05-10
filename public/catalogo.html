@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Catálogo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="layout/styles/EstilosCatalogo.css"> 
+  </head>
+    
+  <body>
+    <div class="ppal" id="ppal">
+      <div class="conte">
+        <br>
+        <a class="but" onclick="cargarMicro()" id="butMicro" >Secciones Delgadas</a>
+        <a class="but" onclick="cargarMacro()" id="butMacro" >Muestras de Mano</a>
+      </div>
+      <div id="contenido">
+
+      </div>
+    </div>
+
+    <div id="sidebar" class="active">
+      <div >
+        <a class="text cerrar"></a> 
+      </div> 
+      <ul id="tabladesc">
+        <li class="titulo">Muestra<h5 id=titulo>No Seleccionada</h5> <p class="texti" > </p></li> 
+                     
+      </ul>
+    </div>
+
+    <div id="sidebar2" class="active">
+
+    <div class="img-magnifier-container" id="divfoto"> 
+      <img id="foto" class="fotos" onclick="lupaon()" alt="Cargando Foto" title="">
+      <h3 class="text1">Click para activar/desactivar lupa</h3>
+      <a id="otrapestaña" target="_blank" href="" class="but">Abrir Foto en Otra Pestaña</a>
+    </div> 
+
+    </div>
+
+    <header class="header2">
+      <div>
+      <div class="wrapper">
+        <div class="logo">
+          <h1 class="prueba"><img src="layout/styles/images/logo.png" class="images" ></h1>
+          
+        </div>
+        <div class="logo1">
+          <h1><b style="padding-right: 70px;"><br>Catálogo de Rocas</h1>
+        </div>
+
+      </div>
+      <nav><a href="#" id="abrir2" onclick="abrirfoto()">Abrir Muestra</a></nav>
+      </div>
+    </header>
+  </body>
+    
+  <script src="layout/js/jquery.min.js" type="text/javascript"></script>
+  <script src="data/muestras.js"></script>
+  <script src="layout/js/catalogo.js"></script>
+
+</html>

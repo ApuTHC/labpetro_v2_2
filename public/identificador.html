@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Identificador</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="layout/styles/EstilosIdentificador.css">
+</head>
+
+<body>
+    <div class="ppal" id="ppal">
+        <br><br>
+        <h1 class=texti>Herramienta para identificar minerales en el Microscopio</h1>
+
+        <div class="conte" id="conte">
+            <a class="but" onclick="Bienvenidos();" id="intro"><span>Introducción</span></a>
+            <a class="but" onclick="Repaso();" id="repaso"><span>Repaso</span></a>
+            <a class="but" onclick="Funcionamiento();" id="guia"><span>¿Cómo funciona?</span></a>
+            <a class="but" onclick="Color();" id="comenzar"><span>Comenzar</span></a>
+        </div>
+        <div class="primer" id="content">
+            
+            <div id="primero" class="pregunta">
+                <h1 id="Pregu" class="texti"></h1>
+                <div id="segundo" >
+
+                </div>
+            </div>
+            <div class="respuesta" id="resp" >
+                <h1 class="text" id="Respuesta"></h1>
+            </div>
+            
+        </div>
+    </div>
+
+    <header class="header2">
+        <div>
+            <div class="wrapper">
+                <div class="logo">
+                    <h1 class="prueba"><img src="layout/styles/images/logo.png" class="images"></h1>
+
+                </div>
+                <div class="logo1">
+                    <h1><b style="padding-right: 70px;"><br>Identificador</h1>
+                </div>
+
+            </div>
+        </div>
+    </header>
+</body>
+
+<script src="layout/js/jquery.min.js" type="text/javascript"></script>
+<script src="data/muestras.js" type="text/javascript"></script>
+<script src="layout/js/identificador.js" type="text/javascript"></script>
+
+</html>

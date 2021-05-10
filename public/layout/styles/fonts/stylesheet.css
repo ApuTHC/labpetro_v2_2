@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Flubby';
+    src: url('Flubby.eot');
+    src: url('Flubby.eot?#iefix') format('embedded-opentype'),
+        url('Flubby.woff') format('woff'),
+        url('Flubby.ttf') format('truetype'),
+        url('Flubby.svg#Flubby') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geoportal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="layout/styles/leaflet.css">  
+    <link rel="stylesheet" href="layout/styles/EstilosGeoMap.css"> 
+  </head>
+    
+  <body>
+    <div class="map" id="map"></div>
+
+    <div id="basemaps-wrapper" class="leaflet-bar">
+      <select name="basemaps" id="basemaps" onChange="setBasemap(basemaps)" class="lista">
+        
+        <option value="Imagery">Imagery</option>
+        <option value="Street">OpenStreet</option>
+        <option value="Gray">Gray</option>
+        <option value="DarkGray">Dark Gray</option>
+        <option value="Topographic">Topographic</option>
+        <option value="ShadedRelief">Shaded Relief</option>
+      </select>
+    </div>
+
+    <div id="sidebar" class="active">
+      <div class = prueba2>
+        <a href="#" class="text cerrar" id="cerrar">X</a> 
+      </div> 
+      <ul>
+        <li class="titulo" id=titulo > Afloramiento 1</li>
+        <li class="text" > <p>Descripción Afloramiento<br></p></li>
+        <li class="text" id=descriaflor> Descripción Afloramiento</li>
+        <li class="text" ><img id=aflor1 class="imax"></li>
+        <li class="text" ><img id=aflor2 class="imax"></li>
+        <li class="text" > <p>Descripción Macroscópica<br></p></li>
+        <li class="text" id=descrimacro> Descripción Macroscópica</li>
+        <li class="text" ><img id=macro1 class="imax"></li>
+        <li class="text" ><img id=macro2 class="imax"></li> 
+        <li class="text" > <p>Descripción Microscópica<br></p></li>
+        <li class="text" id=descrimicro>Descripción Microscópica </li>
+        <li class="text"  ><img id=micronll class="imax"></li>
+        <li class="text" ><img id=micronx class="imax"></li>
+        <li class="titulo"></li>                  
+      </ul>
+    </div>
+
+    <div id="sidebar2" class="active">
+      
+      <ul>
+        <li class="titulo" id=titulo ><a href="#" class="text cerrar2" id="cerrar2">X</a>   Capas Disponibles</li>
+        <li> 
+          <button type="button" class="collapsible">Marcadores de Afloramientos</button>
+          <div class="content" >
+            <ul >
+              <li class="listaContenido">
+                <label class="switch" >
+                  <input type="checkbox" id="MarkrutaMedPto" onChange="borrarMarket(id)">
+                  <span class="slider round"></span>
+                </label>
+                <a>Ruta Medellín-Puerto Triunfo</a>
+              </li>
+              <li class="listaContenido">
+                <label class="switch" >
+                  <input type="checkbox" id="MarkrutaMedCago" onChange="borrarMarket(id)">
+                  <span class="slider round"></span>
+                </label>
+                <a>Ruta Medellín-Cañas Gordas</a>
+              </li>              
+            </ul>  
+          </div> 
+        </li> 
+        <li> 
+          <button type="button" class="collapsible">Rutas Geológicas</button>
+          <div class="content">
+            <ul>
+              <li class="listaContenido">
+                <label class="switch" >
+                  <input type="checkbox" id="btnrutaMedPto">
+                  <span class="slider round"></span>
+                </label>
+                <a>Ruta Medellín-Puerto Triunfo</a>
+                <div class="slidecontainer">
+                  <input type="range" min="0" max="100" value="50" class="sliderb" id="transprutaMedPto">
+                  <p>Transparencia: <span id="valTransprutaMedPto"></span>%</p>
+                </div>
+              </li>
+              <li class="listaContenido">
+                <label class="switch" >
+                  <input type="checkbox" id="btnrutaMedCago">
+                  <span class="slider round"></span>
+                </label>
+                <a>Ruta Medellín-Cañas Gordas</a>
+                <div class="slidecontainer">
+                  <input type="range" min="0" max="100" value="50" class="sliderb" id="transprutaMedCago">
+                  <p>Transparencia: <span id="valTransprutaMedCago"></span>%</p>
+                </div>
+              </li>
+            </ul>
+          </div> 
+        </li>
+        <li> 
+          <button type="button" class="collapsible">Mapas</button>
+          <div class="content">
+            <ul>
+              <li class="listaContenido">
+                <label class="switch">
+                  <input type="checkbox" id="btnGeocol">
+                  <span class="slider round"></span>
+                </label>
+                Mapa Geológico de Colombia
+                <div class="slidecontainer">
+                  <input type="range" min="0" max="100" value="50" class="sliderb" id="transpGeocol">
+                  <p>Transparencia: <span id="valTranspGeocol"></span>%</p>
+                </div> 
+              </li>
+              <li class="listaContenido">
+                <label class="switch">
+                  <input type="checkbox" id="btnFallas">
+                  <span class="slider round"></span>
+                </label>
+                Fallas Regionales de Colombia
+                <div class="slidecontainer">
+                  <input type="range" min="0" max="100" value="50" class="sliderb" id="transpFallas">
+                  <p>Transparencia: <span id="valTranspFallas"></span>%</p>
+                </div> 
+              </li>
+              <li class="listaContenido">
+                <label class="switch">
+                  <input type="checkbox" id="btnPliegues">
+                  <span class="slider round"></span>
+                </label>
+                Mapa de Pliegues en Colombia
+                <div class="slidecontainer">
+                  <input type="range" min="0" max="100" value="50" class="sliderb" id="transpPliegues">
+                  <p>Transparencia: <span id="valTranspPliegues"></span>%</p>
+                </div> 
+              </li>
+              <li class="listaContenido">
+                <label class="switch">
+                  <input type="checkbox" id="btnVolcanes">
+                  <span class="slider round"></span>
+                </label>
+                Volcanes de Colombia
+              </li>
+            </ul> 
+          </div>
+        </li> 
+
+        <li>
+          <button type="button" class="collapsible">Cargar Archivo KML</button>
+          <div class="content" id="archi">
+            <ul>
+              <li class="listaContenido">
+                <form id="form" enctype=" multipart/form-data">
+                  <input type="file" id="files" name="files[]" multiple />
+                  <output id="list"></output>
+                </form>                  
+              </li>
+            </ul> 
+          </div> 
+        </li>
+                      
+      </ul>
+    </div>
+
+    <header class="header2">
+      <div>
+      <div class="wrapper">
+        <div class="logo">
+          <h1 class="prueba"><img src="layout/styles/images/logo.png" class="images" ></h1>
+          
+        </div>
+        <div class="logo1">
+          <h1><b><br>Geoportal</></h1>
+
+        </div>
+
+      </div>
+      <nav><a href="#" id="abrir2">Añadir Capa</a></nav>
+      </div>
+    </header>
+  </body>
+    
+  <div id="scri"></div>
+
+  
+  <script src="layout/js/jquery.min.js" type="text/javascript"></script>
+  <script src="layout/js/leaflet.js"></script>
+  <script src="layout/js/leaflet.wms.js"></script>
+  <script src="layout/js/esri-leaflet.js"></script>
+  <script src="layout/js/L.KML.js"></script>
+  <script src="layout/js/geomap.js"></script>
+  <script src="data/marcadores.js"></script>
+
+</html>
